@@ -1,7 +1,13 @@
 # Turtlebot_3_A_star_Path_Finder
 
+## Clone Workspace
+```bash
+git clone https://github.com/khuzema-h/Turtlebot_3_A_star_Path_Finder.git
+```
+
 ## Build Workspace
 ```bash
+cd ~/project3_ws
 colcon build
 ```
 ## Source Bash
