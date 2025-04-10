@@ -3,6 +3,9 @@ import rclpy
 from rclpy.node import Node
 from geometry_msgs.msg import Twist
 import time
+import math
+import os
+from pathlib import Path
 
 
 class Trajectory_Controller(Node):
@@ -13,12 +16,42 @@ class Trajectory_Controller(Node):
         self.pub = self.create_publisher(Twist, "/cmd_vel", 10)
         # Publish control commands
         cmd_vel = Twist()
-        
+
         # Define RPMs
-        RPM_1 = 0.5
-        RPM_2 = 1.0
-        
-        
+
+        # We convert the RPM to Linear Velocity to publish to the /cmd_vel linear and angular topics
+
+        wheel_radius = 0.033
+        RPM_1 = ((2 * math.pi * 50) / 60) * wheel_radius
+        RPM_2 = ((2 * math.pi * 100) / 60) * wheel_radius
+
+        # Define the time duration for each move (seconds)
+        # tf = float(input("Enter the time step duration: "))
+        tf = 2
+
+        # Read action list from file
+        action_list = []
+        try:
+            # Get directory where this script is located
+            script_dir = Path(os.path.dirname(os.path.realpath(__file__)))
+            # Construct full path to action_list.txt
+            file_path = script_dir / "action_list.txt"
+
+            with open(file_path, "r") as file:
+                for line in file:
+                    line = line.strip()
+                    if line:
+                        # Remove parentheses and split by comma
+                        values = line.strip("()").split(",")
+                        if len(values) == 2:
+                            try:
+                                x = int(values[0])
+                                y = int(values[1])
+                                action_list.append((x, y))
+                            except ValueError:
+                                self.get_logger().warn(f"Skipping invalid line: {line}")
+        except FileNotFoundError:
+            self.get_logger().error(f"action_list.txt not found at {file_path}.")
 
         def forward_slow(tf):
             cmd_vel.linear.x = RPM_1
@@ -94,35 +127,32 @@ class Trajectory_Controller(Node):
             self.get_logger().info("Stopping")
             self.pub.publish(cmd_vel)
 
-       
-        tf = 2
-        
-        action_list = [(0,50),(50,0), (50,50), (0,100), (100,0), (100,100), (50,100), (100,50)]
-        
         for action in action_list:
-            if action == (0,50):
+            if action == (0, 50):
                 left_slow(tf)
-            elif action ==(50,0):
+            elif action == (50, 0):
                 right_slow(tf)
-            
-            elif action == (50,50):
+
+            elif action == (50, 50):
                 forward_slow(tf)
-            
-            elif action == (0,100):
+
+            elif action == (0, 100):
                 left_fast(tf)
-            
-            elif action == (100,0):
+
+            elif action == (100, 0):
                 right_fast(tf)
-            
-            elif action == (100,100):
+
+            elif action == (100, 100):
                 forward_fast(tf)
-            elif action == (50,100):
-                right_forward(tf)
-            
-            elif action == (100,50):
+            elif action == (50, 100):
                 left_forward(tf)
+
+            elif action == (100, 50):
+                right_forward(tf)
         stop()
         
+        
+
 
 def main(args=None):
     rclpy.init(args=args)
