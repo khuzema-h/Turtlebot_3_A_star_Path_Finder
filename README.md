@@ -1,5 +1,5 @@
 # ENPM 661 Project 3 Phase 2 : TurtleBot A star Planner
-#### Project Members : Adil Qureshi, Khuzema Habib, Sounderya Venugopal
+#### Project Members : Adil Qureshi (1220607905), Khuzema Habib(12188776), Sounderya Venugopal(121272423)
 
 ##  Project Description
 
@@ -15,17 +15,72 @@ Link to Folder Containing Path Generation, Gazebo and Falcon Simulations can be 
 
 ## 2D Map with Clearances Applied
 
-  ![clearancemap](https://github.com/user-attachments/assets/3684ba96-bcc0-429e-a62a-4883c010450a)
+
+![image](https://github.com/user-attachments/assets/14151b3c-c3fe-4c75-966d-a0b403a5545d)
+
 
 ## 2D Map with Generated Path
 
 ![image](https://github.com/user-attachments/assets/7f23e4b0-3b3d-4468-9dac-325c41fc2615)
 
-## 3D Map 
+## 3D Map in Gazebo
 
 ![gazebo](https://github.com/user-attachments/assets/44055b91-de16-472b-9eb6-26878d8b54f4)
 
+## 3D Map in Falcon Simulator
+
+![image](https://github.com/user-attachments/assets/a202a682-5a2d-4597-a815-1ee8281674fa)
+
+
 # Running Code
+
+## Clone the Repository
+
+
+```sh
+git clone https://github.com/khuzema-h/Turtlebot_3_A_star_Path_Finder.git
+cd ~/Turtlebot_3_A_star_Path_Finder
+```
+
+## Build and Source Workspace
+
+```sh
+cd ~/Turtlebot_3_A_star_Path_Finder
+colcon build
+source install/setup.bash
+```
+## Run 2D Path Planner
+
+```sh
+cd ~/Turtlebot_3_A_star_Path_Finder/src/turtlebot_project3
+python3 astar.py
+```
+## Suggested Values for User Input:
+
+Robot Clearance : 30
+Start Coordinates : 220, 1500, 30
+Goal Coordinates : 5000,1500
+RPM1 : 5
+RPM2 : 10
+
+Sample Outout: 
+
+
+```sh
+Enter Robot Clearance (in millimeters 10 - 40) : 30
+Enter start x (in millimeters): 220
+Enter start y (in millimeters): 1500
+Enter start theta (in degrees): 30
+Enter goal x (in millimeters): 5000
+Enter goal y (in millimeters): 1500
+Enter RPM1 (1 - 10): 5
+Enter RPM2 (10 - 20): 10
+Generating Path....
+
+```
+
+
+
 
 
 
