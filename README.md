@@ -113,7 +113,21 @@ In a separate terminal run the following command:
 ros2 run turtlebot3_project3 trajectory_controller.py
 ```
 
+# Run Falcon Simulation 
 
+Place the `astar_falcon_planner` package in the src directory of the `falcon_turtlebot3_project_ws` workspace and build it
+
+```
+cd falcon_turtlebot3_project3_ws/
+colcon build
+source install/setup.bash
+```
+To run the simulation
+```
+ros2 launch astar_falcon_planner ros_falcon_astar.launch.py delta_time:=0.5
+```
+
+As we are using the same user input for both falcon and gazebo, only the `delta_time` parameter is set in command line. The waypoints are read from the `waypoints.txt` file. If the user wishes to change the start coordinate, it has to be set in the `AMRPathPlanning.usda` file(line 50 for position and line 51 for orientation). The turtlebot spawns at `(1630, 700, 0)` in the falcon simulatioh. If the start position needs to be `(0.5, 1.0)` meters, this needs to be modified to `(1680, 800, 0)`. 
 
 
 
