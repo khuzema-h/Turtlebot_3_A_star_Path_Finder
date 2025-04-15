@@ -243,7 +243,7 @@ if __name__ == "__main__":      # run main file
     # plt.title("Map (Grayscale)")
     # plt.show()
 
-    print("Map dimensions:", np.shape(map_gray))
+    #print("Map dimensions:", np.shape(map_gray))
     
 
 
@@ -254,7 +254,7 @@ if __name__ == "__main__":      # run main file
             sy = int(input("Enter start y (in millimeters): "))
             sx = int(sx*0.5)
             sy = int(sy*0.5)
-            print(sx,sy)
+            #print(sx,sy)
             stheta = int(input("Enter start theta (in degrees): ")) # getting input from user for start node
             
             if 0 <= sy < rows and 0 <= sx < cols:
@@ -332,14 +332,4 @@ if __name__ == "__main__":      # run main file
 
 
     
-    # # Draw the complete path on the map image.
-    # if path is not None:
-    #     # Create a color version of the map
-    #     map_path = cv2.cvtColor(map_gray, cv2.COLOR_GRAY2BGR)
-    #     for i in range(1, len(path)):
-    #         pt1 = (path[i-1][0], np.shape(map_path)[0] - path[i-1][1])
-    #         pt2 = (path[i][0], np.shape(map_path)[0] - path[i][1])
-    #         cv2.line(map_path, pt1, pt2, (0, 0, 255), thickness=2)
-
-    #     #plt.imshow(map_path)
-    #     #plt.show()
+  
