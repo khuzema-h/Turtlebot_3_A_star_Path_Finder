@@ -79,6 +79,32 @@ Generating Path....
 
 ```
 
+# Run Gazebo Simulation 
+
+## Build and Source Workspace
+
+```sh
+cd ~/Turtlebot_3_A_star_Path_Finder
+colcon build
+source install/setup.bash
+```
+
+## Launch Gazebo Competition World 
+
+```sh
+ros2 launch turtlebot_project3 competition_world.launch.py
+```
+
+## Run Trajectory Controller
+
+In a separate terminal run the following command: 
+
+```sh
+ros2 run turtlebot_project3 trajectory_controller.py
+```
+
+
+
 
 
 
