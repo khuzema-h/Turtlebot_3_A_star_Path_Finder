@@ -102,7 +102,7 @@ source install/setup.bash
 ## Launch Gazebo Competition World 
 
 ```sh
-ros2 launch turtlebot_project3 competition_world.launch.py
+ros2 launch turtlebot3_project3 competition_world.launch.py
 ```
 
 ## Run Trajectory Controller
@@ -110,7 +110,7 @@ ros2 launch turtlebot_project3 competition_world.launch.py
 In a separate terminal run the following command: 
 
 ```sh
-ros2 run turtlebot_project3 trajectory_controller.py
+ros2 run turtlebot3_project3 trajectory_controller.py
 ```
 
 
