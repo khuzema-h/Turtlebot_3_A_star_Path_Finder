@@ -58,7 +58,7 @@ source install/setup.bash
 ## Run 2D Path Planner
 
 ```sh
-cd ~/Turtlebot_3_A_star_Path_Finder/src/turtlebot_project3
+cd ~/Turtlebot_3_A_star_Path_Finder/src/turtlebot3_project3
 python3 astar.py
 ```
 ## Suggested Values for User Input:
