@@ -13,6 +13,12 @@ We first run the 2D Path Planner to generate a trajectory for the other 2 simula
 
 Link to Folder Containing Path Generation, Gazebo and Falcon Simulations can be found here : https://drive.google.com/drive/folders/1ESFB4iaVE5oencMvhOxJujY2T5UsuXSq?usp=drive_link
 
+## Gazebo Trajectory Controller
+
+The 2D path planner outputs the coordinates of the trajectory in a file called planner_waypoints.txt, which is then read by the trajectory controller.
+
+The controller implements proportional control to follow the waypoints, subscribing to /odom to extract pose and heading angles from the quaternion, then publishing linear and angular velocities to /cmd_vel
+
 ## 2D Map with Clearances Applied
 
 
