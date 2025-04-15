@@ -64,9 +64,13 @@ python3 astar.py
 ## Suggested Values for User Input:
 
 Robot Clearance : 30
+
 Start Coordinates : 220, 1500, 30
+
 Goal Coordinates : 5000,1500
+
 RPM1 : 5
+
 RPM2 : 10
 
 Sample Outout: 
