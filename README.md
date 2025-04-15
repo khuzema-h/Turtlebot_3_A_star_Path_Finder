@@ -1,4 +1,4 @@
-# ENPM 661 Project 3 Phase 2 : TurtleBot A star Planner
+# ENPM 661 Project 3 Phase 2 : TurtleBot A Star Planner
 #### Project Members : Adil Qureshi (1220607905), Khuzema Habib(12188776), Sounderya Venugopal(121272423)
 
 ##  Project Description
